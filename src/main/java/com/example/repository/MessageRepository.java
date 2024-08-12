@@ -14,7 +14,7 @@ import com.example.entity.Message;
 public interface MessageRepository extends JpaRepository<Message, Integer>{
 
     @Modifying
-    @Query("UPDATE Message m SET m.messageText = :messageText WHERE m.id = :messageId")
+    @Query("UPDATE Message m SET m.messageText = :messageText WHERE m.messageId = :messageId")
     void updateMessageTextById(@Param("messageId") Integer messageId, @Param("messageText") String messageText);
 
     @Query("SELECT m FROM Message m WHERE m.postedBy = :accountId")
